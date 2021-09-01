@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Link from 'next/link';
 import commonStyles from '../../styles/common.module.scss';
 import styles from './header.module.scss';
