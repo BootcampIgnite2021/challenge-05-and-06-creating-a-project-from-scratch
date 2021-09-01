@@ -1,4 +1,29 @@
-.container {
-  margin: 0 auto;
-  max-width: 1120px;
+.content {
+  margin-bottom: 48px;
+  h1 {
+    font-size: 28px;
+    color: var(--heading);
+  }
+
+  h3 {
+    margin-top: 8px;
+    font-size: 18px;
+    color: var(--body);
+  }
+
+  div {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+
+    span {
+      color: var(--info);
+      font-size: 14px;
+      margin-left: 8px;
+    }
+
+    svg:nth-child(3) {
+      margin-left: 20px;
+    }
+  }
 }

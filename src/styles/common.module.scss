@@ -3,4 +3,8 @@
   max-width: 1120px;
   display: flex;
   justify-content: start;
+
+  @media (max-width: 1120px) {
+    padding: 0 50px;
+  }
 }
