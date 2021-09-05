@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { FiCalendar, FiUser } from 'react-icons/fi';
 
@@ -54,8 +55,10 @@ export default function Home({ postsPagination, preview }: HomeProps) {
       <main className={commonStyles.container}>
         <div>
           {postsPagination.results.map(post => (
-            <div className={styles.content}>
-              <h1>{post.data.title}</h1>
+            <div key={post.uid} className={styles.content}>
+              <Link href={`/post/${post.uid}`}>
+                <h1>{post.data.title}</h1>
+              </Link>
               <h3>{post.data.subtitle}</h3>
 
               <div>
@@ -70,7 +73,9 @@ export default function Home({ postsPagination, preview }: HomeProps) {
 
           {loadPosts.map(post => (
             <div className={styles.content}>
-              <h1>{post.data.title}</h1>
+              <Link href={`/post/${post.uid}`}>
+                <h1>{post.data.title}</h1>
+              </Link>
               <h3>{post.data.subtitle}</h3>
 
               <div>

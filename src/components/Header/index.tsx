@@ -9,7 +9,7 @@ export default function Header() {
     <div className={styles.contentHeader}>
       <header className={commonStyles.container}>
         <Link href="/">
-          <img src="/Logo.svg" alt="Logo" />
+          <img src="/Logo.svg" alt="logo" />
         </Link>
       </header>
     </div>
