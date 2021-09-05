@@ -12,7 +12,8 @@ import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
 import styles from './home.module.scss';
-import { formateDate } from '../utils/formateDate';
+import { formateDate, FORMAT_DATE } from '../utils/formateDate';
+import { ExitPreviewButton } from '../components/ExitPreviewButton';
 
 interface Post {
   uid?: string;
@@ -63,7 +64,9 @@ export default function Home({ postsPagination, preview }: HomeProps) {
 
               <div>
                 <FiCalendar color="#BBBBBB" size={20} />
-                <span>{formateDate(post.first_publication_date)}</span>
+                <span>
+                  {formateDate(post.first_publication_date, FORMAT_DATE)}
+                </span>
 
                 <FiUser color="#BBBBBB" size={20} />
                 <span>{post.data.author}</span>
@@ -80,7 +83,9 @@ export default function Home({ postsPagination, preview }: HomeProps) {
 
               <div>
                 <FiCalendar color="#BBBBBB" size={20} />
-                <span>{formateDate(post.first_publication_date)}</span>
+                <span>
+                  {formateDate(post.first_publication_date, FORMAT_DATE)}
+                </span>
 
                 <FiUser color="#BBBBBB" size={20} />
                 <span>{post.data.author}</span>
@@ -99,17 +104,23 @@ export default function Home({ postsPagination, preview }: HomeProps) {
           ) : (
             <> </>
           )}
+
+          {preview && <ExitPreviewButton />}
         </div>
       </main>
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps = async ({
+  preview = true,
+  previewData,
+}) => {
   const prismic = getPrismicClient();
   const postsResponse = await prismic.query(
     [Prismic.predicates.at('document.type', 'po')],
     {
+      ref: previewData?.ref ?? null,
       pageSize: 1,
     }
   );
