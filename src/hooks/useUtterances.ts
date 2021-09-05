@@ -2,7 +2,8 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useEffect, useState } from 'react';
 
-const REPO_NAME = 'pejamp/spacetraveling-utterance-comments';
+const REPO_NAME =
+  'BootcampIgnite2021/challenge-05-and-06-creating-a-project-from-scratch';
 
 export const useUtterances = (commentNodeId: string) => {
   const [visible, setVisible] = useState(false);
